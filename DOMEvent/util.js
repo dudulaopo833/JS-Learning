@@ -33,5 +33,9 @@ var eventUtil = {
 		} else {
 			e.returnValue = false;
 		}
+	},
+
+	getTarget: function(e){
+		return e.target? e.target : e.srcElement;
 	}
 };

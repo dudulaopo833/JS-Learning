@@ -51,6 +51,8 @@ window.onload = function() {
 	var link = document.getElementById('link');
 	eventUtil.addHandler(link, 'click', function(e){
 		e = e || window.e;
+		var targetElment = eventUtil.getTarget(e);
+		alert(targetElment.nodeName);
 		eventUtil.preventDefault(e);
 		eventUtil.stopPropagation(e);
 	});
