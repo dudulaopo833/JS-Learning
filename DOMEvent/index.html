@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM Event</title>
+	<script src="util.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<!-- 以下demo html事件， DOM0级事件， DOM2级事件， IE事件 -->
+	<!-- 以下demo 是事件对象属性和方法 --> 
+	<!-- 以下demo 浏览器兼容问题 --> 
+	<div id="box">
+		<input type="button" id="btn1" value="btn1" onclick="htmlEvent()">
+		<input type="button" id="btn2" value="btn2">
+		<input type="button" id="btn3" value="btn3">
+		<input type="button" id="btn4" value="btn4">
+		<input type="button" id="btn5" value="btn5">
+		<a href="blank.html" id="link">Link</a>
+	</div>
+	<script>
+		function htmlEvent(){
+			alert("This is html event.");
+		}
+	</script>
+</body>
+</html>
