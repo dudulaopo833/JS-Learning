@@ -2,7 +2,10 @@
 > event 有 type, target/srcElement, clientX, offsetX 等属性； 
 > event 有 stopPropagation(), preventDefault() 等方法， 在IE中是 cancelBubble， reurnValue属性
 
-> dom元素有 offsetLeft, offsetTop, offsetWidth, offsetHeight, className, innerHTML 等属性, 注意是属性！不是方法， 不要跟jquery混淆了
+> dom元素有 clientWidth, clientHeight, offsetLeft, offsetTop, offsetWidth, offsetHeight, className, innerHTML 等属性, 注意是属性！不是方法， 不要跟jquery混淆了
+> width + padding + border = offsetWidth
+  width + padding = clientWidth
+  width = scrollWidth
 
 
 # 笔记

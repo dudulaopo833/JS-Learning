@@ -35,7 +35,23 @@ function mousedownFun(e){
 function mousemoveFun(e, xDis, yDis){
 	var oPanel = document.getElementById('loginPanel'),
 		xPos = e.clientX - xDis,
-		yPos = e.clientY - yDis;
+		yPos = e.clientY - yDis,
+		wWidth = document.documentElement.clientWidth || document.body.clientWidth,
+		wHeight = document.documentElement.clientHeight || document.body.clientHeight,
+		maxXPos = wWidth - oPanel.offsetWidth,
+		maxYPos = wHeight - oPanel.offsetHeight;
+	//限制各种条件避免panel超出边框
+	if(xPos < 0){
+		xPos = 0;
+	}else if(xPos > maxXPos){
+		xPos = maxXPos;
+	}
+
+	if(yPos < 0){
+		yPos = 0;
+	}else if(yPos > maxYPos){
+		yPos = maxYPos;
+	}
 	oPanel.style.left = xPos + 'px';
 	oPanel.style.top = yPos + 'px'; //注意加px， 不然不生效
 }
