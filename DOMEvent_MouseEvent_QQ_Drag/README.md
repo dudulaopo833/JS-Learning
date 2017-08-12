@@ -7,6 +7,8 @@
   width + padding = clientWidth
   width = scrollWidth
 
+关于DOM，请参考[W3CSchoole](http://www.w3school.com.cn/jsref/dom_obj_document.asp)
+
 
 # 笔记
  > document.getElementsByClassName 不兼容低版本的IE，所以可以自己封装一个 
