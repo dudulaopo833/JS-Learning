@@ -33,7 +33,9 @@ function mousedownFun(e){
 }
 
 function mousemoveFun(e, xDis, yDis){
-	var oPanel = document.getElementById('loginPanel');
-	oPanel.style.left = e.clientX + 'px';
-	oPanel.style.top = e.clientY + 'px'; //注意加px， 不然不生效
+	var oPanel = document.getElementById('loginPanel'),
+		xPos = e.clientX - xDis,
+		yPos = e.clientY - yDis;
+	oPanel.style.left = xPos + 'px';
+	oPanel.style.top = yPos + 'px'; //注意加px， 不然不生效
 }
