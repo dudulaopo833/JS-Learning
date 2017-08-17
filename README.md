@@ -5,7 +5,8 @@
 > ESCAMScript(JS standard): JS标准     
 > DOM1(DOM Core, DOM HTML)   
 > DOM2(DOM Views, DOM Events, DOM style, DOM Traversal and Range)   
-> DOM3(DOM load And Save, DOM Validation)
+> DOM3(DOM load And Save, DOM Validation)    
+> DOM 支持多种文档类型(html-<!doctype html>, xml-<?xml>)
 
 # Content
 * [DOM Event](): 说明了两种事件流，说明了 html event, dom0 event, dom2 event 和 IE event; 并且说明了怎么用能力检测来兼容浏览器事件处理   
