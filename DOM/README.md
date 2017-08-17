@@ -10,15 +10,9 @@
 * DOM 节点类型(nodeType)常用的有八种(element-1, attribute=2, text-3, comment-8, document-9, documentType-10, documentFragment-11)
 ```
 属性： 
+DOM.nodeType, DOM.nodeName, DOM.nodeValue, DOM.attributes, DOM.childNodes, DOM.innerHTML
 document.body.childNodes, document.doctype.nodeName, 
-DOM.nodeType, DOM.nodeName, DOM.nodeValue, DOM.attributes, DOM.childNodes, 
-DOM.innerHTML, DOM.offsetWidth, DOM.clientWidth, DOM.scrollWidth
 方法：
 document.createDocumentFragment, document.getElementById, document.getElementsByTagName, document.createElement, 
 DOM.appendChild
 ```
-
-
-# Content
-* [DOM Event](): 说明了两种事件流，说明了 html event, dom0 event, dom2 event 和 IE event; 并且说明了怎么用能力检测来兼容浏览器事件处理   
-* [DOM Event - Mouse Event - QQ drag](): 用拖拽QQ面板的小例子来演示了Mouse Event; 涉及到了DOM元素属性clientWidth,scrollWidth,offsetWidth,offsetLeft,className,innerHTML等;  以及DOM事件对象属性clientX, clientY,offsetX,target,type等   
