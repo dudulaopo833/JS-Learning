@@ -10,8 +10,8 @@
 * DOM 节点类型(nodeType)常用的有八种(element-1, attribute=2, text-3, comment-8, document-9, documentType-10, documentFragment-11)
 ```
 属性： 
-document.body.childNodes, document.doctype.nodeName, 
 DOM.nodeType, DOM.nodeName, DOM.nodeValue, DOM.attributes, DOM.childNodes, 
+document.body.childNodes, document.doctype.nodeName, 
 DOM.innerHTML, DOM.offsetWidth, DOM.clientWidth, DOM.scrollWidth
 方法：
 document.createDocumentFragment, document.getElementById, document.getElementsByTagName, document.createElement, 
