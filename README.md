@@ -21,6 +21,7 @@ DOM.appendChild(DOM)
 > DOM: 有 event, document 对象; event对象有type, target, clientX(相对于文档), clientY, offsetX(相对于容器), offsetY 属性; event对象有 stopPropagation(), preventDefault()方法      
 
 > IE: 有 window.event, window.document 对象; event对象有type, srcElement, clientX, clientY 属性; event对象有 cancelBubble, returnValue 属性来实现dom对应的取消冒泡和阻止默认事件的方法   
+* 关于domReady浏览器渲染的过程参考 DOM 
 
 # Content
 * [DOM](): 记录了DOM的一些基础知识
