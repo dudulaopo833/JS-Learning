@@ -18,8 +18,9 @@ document.createDocumentFragment(), document.getElementById('id'), document.getEl
 DOM.appendChild(DOM)
 ```
 * 低版本IE不支持DOM2，所以有以下差异
-> DOM: 有 event, document 对象; event对象有type, target, clientX, clientY 属性; event对象有 stopPropagation(), preventDefault()方法   
-> IE: 有 window.event, window.document 对象; event对象有type, srcElement, clientX, clientY 属性; event对象有 cancelBubble, returnValue 属性来实现dom对应的取消冒泡和阻止默认事件的方法
+> DOM: 有 event, document 对象; event对象有type, target, clientX, clientY 属性; event对象有 stopPropagation(), preventDefault()方法      
+
+> IE: 有 window.event, window.document 对象; event对象有type, srcElement, clientX, clientY 属性; event对象有 cancelBubble, returnValue 属性来实现dom对应的取消冒泡和阻止默认事件的方法   
 
 # Content
 * [DOM](): 记录了DOM的一些基础知识
