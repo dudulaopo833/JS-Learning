@@ -24,7 +24,10 @@ document.createDocumentFragment(), document.getElementById('id'), document.getEl
 > 1. 浏览器渲染引擎的渲染过陈: 解析html构建dom树(构建dom节点) -> 构建渲染树(解析样式信息) -> 布局渲染树(布局dom节点)-> 绘制渲染树(绘制dom节点)  
 > 2. 简单来说就是：dom tree -> render tree -> layout render tree -> paint render tree   
 > 3. 具体渲染过程可以参考[这里](http://kb.cnblogs.com/page/129756/)
-* DOMReday实现策略：
+* DOMReady实现策略：
+> 0. window.onload 这个事件是等 dom树构建好，所有外部资源(图片/请求)完成之后才触发；如果外部资源很多，那么就很慢！
+> 0. document.onreadystatechange 这个事件和window.onload 相当，也要等所有资源加载好了才处理, 这个主要针对iframe!
 > 1. 对于支持DOMContentLoaded事件的现代浏览器，就使用DOMContentLoaded事件
 > 2. 对于不支持DOMContentLoaded事件的低版本IE浏览器，就是用document.documentElement.doSroll('left')来判断DOM树是否创建完毕! 
+> 3. 各大前段框架的DOMReady实现可以参考[这里](http://www.cnblogs.com/JulyZhang/archive/2011/02/12/1952484.html)
 
