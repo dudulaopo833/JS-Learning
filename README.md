@@ -11,7 +11,7 @@
 ```
 属性： 
 DOM.nodeType, DOM.nodeName, DOM.nodeValue, DOM.attributes, DOM.childNodes, 
-document.body.childNodes, document.doctype.nodeName, 
+document.body.childNodes || document.documentElement.clientWidth, document.doctype.nodeName 
 DOM.innerHTML, DOM.offsetWidth, DOM.clientWidth, DOM.scrollWidth
 方法：
 document.createDocumentFragment(), document.getElementById('id'), document.getElementsByTagName('elementTag'), document.createElement('elmentTag'), 
