@@ -30,8 +30,8 @@ function myDomReady(fn){
 		//在document state没有执行前，实时监听doScroll来判断dom加载状态
 		(function(){
 			try{
-				// 如果dom树没有构建完了，执行doscroll就会报错
-				d.docuemntElement.doscroll('left');
+				// 如果dom树没有构建完了，执行doScroll就会报错
+				d.docuemntElement.doScroll('left');
 			}catch (e){
 				setTimeout(arguments.callee, 50); // arguments.callee 表示调用自身
 				return;// return实现递归
