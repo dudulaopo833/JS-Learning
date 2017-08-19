@@ -49,4 +49,6 @@ function bindReady(){
     jQuery.event.add( window, "load", jQuery.ready );
 }
 ```
-> 3. 各大前段框架的DOMReady实现可以参考[这里](http://www.cnblogs.com/JulyZhang/archive/2011/02/12/1952484.html)
+> 4. 各大前段框架的DOMReady实现可以参考[这里](http://www.cnblogs.com/JulyZhang/archive/2011/02/12/1952484.html)
+> 5. 学到的东西
+arguments.callee表示执行自己!
