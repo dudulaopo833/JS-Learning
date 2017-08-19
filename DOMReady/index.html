@@ -12,5 +12,29 @@
 </head>
 <body>
 	<h1 id='container'>My domReady demo</h1>
+	<div id="showMessage"></div>
+	<div>
+		<img src="images/1.jpg" alt="First">
+		<img src="images/2.jpg" alt="Second">
+		<img src="images/3.jpg" alt="Third">
+		<img src="images/4.jpg" alt="Fourth">
+	</div>
+	<script> <!-- 需要把这个script放在最后面，保证执行时dom树已经构建好了 -->
+		var showBox = document.getElementById('showMessage');
+		var domReadyTime = null, onloadTime = null;
+		myDomReady(function(){
+			document.getElementById('container').style.color = 'red';
+			showBox.innerHTML += 'DOM is ready! <br>';
+			domReadyTime = new Date().getTime();
+			showBox.innerHTML += 'Time is : ' + domReadyTime + '<br>'
+		});
+
+		window.onload = function(){
+			showBox.innerHTML += 'onload is ready! <br>';
+			onloadTime = new Date().getTime();
+			showBox.innerHTML += 'Time is : ' + onloadTime + '<br>';
+			showBox.innerHTML += 'domReadyTime is faster ' + (onloadTime - domReadyTime) + 'ms than onloadTime!';
+		}
+	</script>
 </body>
 </html>
