@@ -1,4 +1,5 @@
 # Summary
+### Related vedio: http://www.imooc.com/video/9491
 ### CSS ---style---> HTML <---DOM-BOM-ESCAMScript--- JS   
 * DOM(Document Object Model): 首先浏览器会把html内容解析成文档对象模型，然后就可以用docment.xxx, window.xxx 去操作DOM元素   
 * BOM(Broswer Object Model): 处理浏览器导航, 窗口, 分辨率, history, cookie等操作   
