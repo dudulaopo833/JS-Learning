@@ -1,0 +1,33 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#showPrize{
+	width: 600px;
+	height: 70px;
+	margin: 0 auto;
+	padding-top: 10px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 300px;
+	color: #F00;
+}
+
+.btn-div{
+	width: 190px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.btn-div input{
+	float: left;
+	width: 80px;
+	height: 30px;
+	background: #036;
+	border: solid 1px #eee;
+	border-radius: 7px;
+	margin-right: 10px;
+	color: #FFF;
+	cursor: pointer;
+}
