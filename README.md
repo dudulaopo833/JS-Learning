@@ -7,10 +7,14 @@
 
 # Summary
 在前端世界， 有很多对象，具体看下图
-* Broswer Object 
-> [Window Object](https://github.com/dudulaopo833/JS-Projects/edit/master/BroswerObject_WindowObject.md) (对浏览器或者iframe操作的一系列对象) 
+* Broswer Object（都是全局对象）
+> [Window Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BroswerObject_WindowObject.md) Window对象表示浏览器中打开的窗口，包含对浏览器或者iframe操作的一系列属性和方法    
 > History Object  
-> Navigator Object  
+> Navigator Object: Navigator对象包含有关浏览器的信息.它的属性描述了正在使用的浏览器，可以用这些属性进行平台专用的配置
+```
+1. navigator.plugins: 列举了浏览器已经安装的插件
+2. navigator的有这些常用的属性： userAgent, cookieEnabled, language, appName, appVersion, appCodeName.
+```
 > Screen Object   
 * HTML DOM Object
 * JS Object
