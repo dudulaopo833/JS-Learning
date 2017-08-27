@@ -7,7 +7,7 @@
 
 # Summary
 在前端世界， 有很多对象，具体看下图
-* Broswer Object（都是全局对象）
+## Broswer Object（都是全局对象）
 > 1. [Window Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BroswerObject_WindowObject.md) Window对象表示浏览器中打开的窗口，包含对浏览器或者iframe操作的一系列属性和方法    
 > 2. [Location Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BroswerObject_WindowObject_LocationObject.md): 表示窗口中当前显示的文档的 Web 地址(url)的相关信息
 > 3. History Object: History对象设计来表示窗口的浏览历史.
@@ -27,8 +27,8 @@ navigator的有这些常用的属性： userAgent, cookieEnabled, language, appN
 width, height, availWidth, availHeight(除了任务栏之后的高度)
 colorDepth, fontSmoothingEnabled(启用字体平滑), orientation(横竖屏), updateInterval
 ```
-* HTML DOM Object
-* JS Object
+## HTML DOM Object
+## JS Object
 > Array, String, Boolen, Number   
 > Functions, Events, RegExp  
 > Data, Math   
