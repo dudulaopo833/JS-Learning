@@ -6,7 +6,7 @@
  
  ## 窗口操作
  * 只读属性 ： closed, defaultstatus, innerwidth, innerheight, name, status, outerwidth, outerheight, pageXOffset, pageYOffset, screenX, screenY, screenLeft, screenTop, 
- * 常用方法: alert(), setInterval(), setTimeout(), clearInterval(), clearTimeout(), scrollTo(x,y)
+ * 常用方法: alert(), setInterval(), setTimeout(), clearInterval(), clearTimeout(), scrollTo(x,y), getComputedStyle()[refer to](http://www.zhangxinxu.com/wordpress/2012/05/getcomputedstyle-js-getpropertyvalue-currentstyle/), getPropertyValue()
  * 不常用方法： open(), close(), prompt(), confirm(), blur(), focus(), print()
  
  
