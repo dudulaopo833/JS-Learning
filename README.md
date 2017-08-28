@@ -28,6 +28,11 @@ width, height, availWidth, availHeight(除了任务栏之后的高度)
 colorDepth, fontSmoothingEnabled(启用字体平滑), orientation(横竖屏), updateInterval
 ```
 ## HTML DOM Object
+refer to [DOM Object](https://github.com/dudulaopo833/JS-Projects/blob/master/DOMObject.md)  
+> document object  
+> elment object  
+> attribute object  
+> event object   
 ## JS Object
 > Array, String, Boolen, Number   
 > Functions, Events, RegExp  
