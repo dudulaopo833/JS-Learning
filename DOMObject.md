@@ -6,18 +6,25 @@
 ### document对象属性
 > body, title, cookie(navigator.cookieEnabled), domain(location.host), reffer/URL(location.href), lastModified, document.baseURI
 ### document对象方法
-> 常用的： document.getElementById(), document.getElementsByTagName(), document.getElementsByName()--> 标签中要有name属性   
+> 常用的： 
+```
+a. document.getElementById(), document.getElementsByTagName(), document.getElementsByName()--> 标签中要有name属性     
+b. document.getElementsByClassName(IE9+), document.querySelector()(IE8+), document.querySelectorAll()(IE8+) 
+c. document.createElement(), document.createTextNode(), document.createAttribute(), document.createDocumentFragment()
+```
 > 不常用的： document.open(mimeType, replace) -> document.write()/document.writeIn() -> document.close();
 
 # DOM Element对象
 * HTML DOM中有文档节点，元素节点，属性节点，文本节点，注释节点；而元素节点又可以有元素节点，文本节点，注释节点做为子节点，也可以有属性！
 * 常用的element对象属性：
+> 0. element.dataset
 > 1. element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, 
 > 2. element.className, element.style, element.attributes[], element.childNodes[]     
-> 3. element.nodeName, element.nodeType, element.nodeValue, element.innerHTML, element.tagName, element.textContent, element.title, element.tabIndex
-> 4. element.offsetHeight, element.offsetWidth, element.clientWidth, element.clientHeight, element.scrollWidth, element.scrollHeight
-> 5. element.offsetLeft, element.offsetTop, element.offsetParent, element.scrollleft, element.scrollTop
-> 6. 不常用的element.isContentEditable, element.contentEditable
+> 3. element.nodeName, element.nodeType, element.nodeValue, element.tagName, element.title, element.tabIndex
+> 4. element.innerHTML, element.innerText(不包含隐藏文本), element.textContent(包含隐藏文本), 
+> 5. element.offsetHeight, element.offsetWidth, element.clientWidth, element.clientHeight, element.scrollWidth, element.scrollHeight
+> 6. element.offsetLeft, element.offsetTop, element.offsetParent, element.scrollleft, element.scrollTop
+> 7. 不常用的element.isContentEditable, element.contentEditable
 * 常用的element对象方法： 
 > 1. element.getElementsByTagName(), element.cloneNode()
 > 2. element.appendChild(), element.insertBefore()
