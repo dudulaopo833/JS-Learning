@@ -28,9 +28,23 @@ function getName(){
 };
 var exampleObject = {
   name: "Alma",
-  getName: getName; // 一定需要定义这个getName; 如果没有，会报exampleObject.getName is not a function
+  getName: getName // 一定需要定义这个getName; 如果没有，会报exampleObject.getName is not a function
 };
 getName(); // undefined; 执行的时候，光杆司令，默认绑定到window, 所以window.name 是undefined
-exampleObject.getName(); // Alma; 执行的时候， 有上下文exampleObject, 所以this指向exampleObject, this.name为Alma
+exampleObject.getName(); // Alma; 执行的时候，有上下文exampleObject, 所以this指向exampleObject, this.name为Alma
+```
+### c. 显示绑定：用call， apply， bind 来显示改变执行的上下文
+* call(context, arg1, arg2, ...) 立即执行
+* apply(context, [arg1, arg2, ...]) 立即执行
+* bind(context) 不会立即执行，仅仅是把context绑定到函数中的this, 然后返回绑定了上下文的函数
+```
+function getName(){
+  console.log(this.name);
+};
+var exampleObject = {
+  name: "Alma"
+};
+getName = getName.bind(exampleObject); // 不会立即执行，但是会绑定this到exampleObject
+getName(); // Alma; 执行的时候，已经有了绑定的上下文exampleObject, 所以this指向exampleObject, this.name为Alma
 ```
 
