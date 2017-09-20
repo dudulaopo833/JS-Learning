@@ -18,7 +18,8 @@ function foo(){
   console.log(this.a);
 }
 var a = 10;
-foo(); // 10; 执行的时候，光杆司令，默认绑定到window, 而不是定义的foo对象(函数也是对象)，所以this.a = window.a = 10; 严格模式下, 是undefined
+foo(); // 10; 执行的时候，光杆司令，默认绑定到window, 而不是定义的foo对象(函数也是对象)，所以this.a = window.a = 10; 
+       //严格模式下, 是undefined
 ```
 ### b. 隐性绑定：函数调用的时候，指定了对象，并且这个对象一定要有调用的函数，不然会抱错的
 ```
