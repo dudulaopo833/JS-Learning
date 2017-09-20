@@ -53,4 +53,19 @@ aaa(); // Alma; 执行的时候，已经有了绑定的上下文exampleObject, �
 getName.call(exmapleObject_Two); // Ma
 aaa.call(exmapleObject_Two); // Alma ; 因为刚才已经用bind绑定了上下文，所以即使再用bind,call,apply也改变不了之前的绑定
 ```
-
+### d. new绑定： 
+* 使用new调用构造函数，会经过下面四步， 返回一个以自己名字命名的新对象(如果函数有返回别的对象，那么这个新对象是无法返回的，也就是说丢失了绑定this的新对象)
+> 1. 创建一个新对象
+> 2. 将构造函数的作用域赋给新对象(this指向了这个新对象)
+> 3. 执行构造函数中的代码(为这个新对象添加属性和方法)
+> 4. 返回这个新对象
+```
+function Foo(){
+  this.a = 10;
+  console.log(this);
+}
+Foo(); // console.log(this)为window对象，构造函数没有用new的话，和普通函数一样执行，执行的时候，上下文是window, 所以this是window
+console.log(window.a); // 10, 默认绑定
+var obj = new Foo(); // console.log(this)为Foo{ a: 10 }；new构造函数，返回了一个新对象 Foo{ a: 10 }; 这句等价于Foo{ a: 10 }; var obj = Foo;
+console.log(obj.a); // 10, new绑定， 返回了一个新对象，this指向这个新对象
+```
