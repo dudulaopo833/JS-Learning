@@ -36,7 +36,7 @@ exampleObject.getName(); // Alma; 执行的时候，有上下文exampleObject, �
 ### c. 显示绑定：用call， apply， bind 来显示改变执行的上下文
 * call(context, arg1, arg2, ...) 立即执行
 * apply(context, [arg1, arg2, ...]) 立即执行
-* bind(context) 不会立即执行，仅仅是把context绑定到函数中的this, 然后返回绑定了上下文的函数
+* bind(context) 不会立即执行，仅仅是把context绑定到函数中的this, 然后返回绑定了上下文的函数; 返回的这个函数如果赋值给某个变量，那么这个变量不能再改变上下文
 ```
 function getName(){
   console.log(this.name);
@@ -44,11 +44,13 @@ function getName(){
 var exampleObject = {
   name: "Alma"
 };
-getName = getName.bind(exampleObject); // 不会立即执行，但是会绑定this到exampleObject
-getName(); // Alma; 执行的时候，已经有了绑定的上下文exampleObject, 所以this指向exampleObject, this.name为Alma
 var exmapleObject_Two = {
   name: "Ma"
 };
-getName.call(exampleObject_Two); // Ma; 执行的时候，已经有了绑定的上下文exampleObject_Two, 所以this指向exampleObject_Two, this.name为Ma
+getName.call(exmapleObject_Two); // Ma; 执行的时候，已经有了绑定的上下文exampleObject_Two, 所以this指向exmapleObject_Two, this.name 为Ma
+var aaa = getName.bind(exampleObject); // 不会立即执行，但是会绑定this到exampleObject
+aaa(); // Alma; 执行的时候，已经有了绑定的上下文exampleObject, 所以this指向exampleObject, this.name为Alma
+getName.call(exmapleObject_Two); // Ma
+aaa.call(exmapleObject_Two); // Alma ; 因为刚才已经用bind绑定了上下文，所以即使再用bind,call,apply也改变不了之前的绑定
 ```
 
