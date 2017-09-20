@@ -46,5 +46,9 @@ var exampleObject = {
 };
 getName = getName.bind(exampleObject); // 不会立即执行，但是会绑定this到exampleObject
 getName(); // Alma; 执行的时候，已经有了绑定的上下文exampleObject, 所以this指向exampleObject, this.name为Alma
+var exmapleObject_Two = {
+  name: "Ma"
+};
+getName.call(exampleObject_Two); // Ma; 执行的时候，已经有了绑定的上下文exampleObject_Two, 所以this指向exampleObject_Two, this.name为Ma
 ```
 
