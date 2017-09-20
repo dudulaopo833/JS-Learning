@@ -21,7 +21,16 @@ var a = 10;
 foo(); // 10; 执行的时候，光杆司令，默认绑定到window, 而不是定义的foo对象(函数也是对象)，所以this.a = window.a = 10; 
        //严格模式下, 是undefined
 ```
-### b. 隐性绑定：函数调用的时候，指定了对象，并且这个对象一定要有调用的函数，不然会抱错的
+### b. 隐性绑定：函数调用的时候，指定了对象，并且这个对象一定要有调用的函数定义，不然会抱错的
 ```
+function getName(){
+  console.log(this.name);
+};
+var exampleObject = {
+  name: "Alma",
+  getName: getName; // 一定需要定义这个getName; 如果没有，会报exampleObject.getName is not a function
+};
+getName(); // undefined; 执行的时候，光杆司令，默认绑定到window, 所以window.name 是undefined
+exampleObject.getName(); // Alma; 执行的时候， 有上下文exampleObject, 所以this指向exampleObject, this.name为Alma
 ```
 
