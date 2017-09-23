@@ -9,7 +9,7 @@
 ### 3. 修改属性的默认特征，则需要用Object.defineProperty()
 * 如果把configurable改为了false， 就不可能再改回configurable: true,会报Cannot redefine property: name
 * 如果在修改默认特征时候，没有指明某个特性的值， 那么那个特性就默认false
-```
+```js
 var person = { name: "ma" };
 console.log(person.name); // ma
 Object.defineProperty(person, "name", {
@@ -25,7 +25,7 @@ Object.defineProperty(person, "name", { // 报错： Cannot redefine property: n
 });
 ```
 ### 4. 定义访问器属性，则需要用 Object.defineProperty();
-```
+```js
 var book = {
   _year: 2004
 };
@@ -39,7 +39,7 @@ Object.defineProperty(book, "year", {
 });
 ```
 ### 5. 同一时间定义多个属性，用Object.defineProperties();
-```
+```js
 var book = {};
 Object.defineProperties(book, {
   _year: { // 数据属性
