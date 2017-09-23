@@ -1,3 +1,4 @@
+# 认识对象 - 对象属性及属性特征值
 ### 1. 对象属性(person.name)在创建的时候带有一些特征值， 这些特征值就定义了属性的行为
 ### 2. 属性有数据属性，访问器属性； 
 数据属性有configurable, enumerable, writable, value四个特征值； 访问器属性有configurable, enumerable, get(函数), set(函数) 四个特征值
@@ -37,8 +38,7 @@ Object.defineProperty(book, "year", {
   }
 });
 ```
-### 5. 同一时间定义多个属性
-用Object.defineProperties();
+### 5. 同一时间定义多个属性，用Object.defineProperties();
 ```
 var book = {};
 Object.defineProperties(book, {
