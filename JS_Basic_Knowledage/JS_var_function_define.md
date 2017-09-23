@@ -5,7 +5,7 @@
 * 变量和函数同名，后面的会覆盖掉前面的
 * 如果局部变量和全局变量同名， 那么局部变量覆盖全局变量
 > 例子1：
-```
+```js
 alert(a);
 a();
 var a = 3; 
@@ -17,7 +17,7 @@ a = 6;
 a();
 ```
 相当于下面的代码
-```
+```js
 var a;
 function a(){
 	alert(10);
@@ -30,7 +30,7 @@ a = 6;
 a(); // a is not a function
 ```
 > 例子2：
-```
+```js
 function v(){
 	console.log(a);
 	var a = 1;
@@ -46,7 +46,7 @@ function v(){
 v();
 ```
 相当于： 
-```
+```js
 function v(){
 	var a;
 	var b;
@@ -64,7 +64,7 @@ function v(){
 v();
 ```
 > 例子3 :
-```
+```js
 var a = 1;
 console.log(a);
 function v(){
@@ -87,7 +87,7 @@ console.log(b);
 console.log(c);
 ```
 相当于：
-```
+```js
 var a;
 var b;
 a = 1;
