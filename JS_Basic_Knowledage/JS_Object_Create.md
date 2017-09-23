@@ -62,18 +62,18 @@ function Person(name) {
 > d. 返回创建新对象
 * 构造函数实质也是函数，可以不用new操作符, 当普通函数用; 那么执行构造函数的代码就是在全局作用域window上绑定了属性和方法
 * 构造函数当普通函数用，且用call或者apply绑定作用域到一个新创建的对象; 这个过程和实例化一个构造函数过程类似
-```
+```js
 var o = new Object();
 Person.call(o, "Alma");
 o.sayName(); // Alma
 ```
 * 每个实例都可以访问constructor属性, 这个属性其实是原型上的constructor属性; 所以实例和构造函数其实没啥联系, 是通过原型产生了联系, 具体详见[原型祥解](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_prototype.md)
-```
+```js
 person1.constructor === Person; // true
 person1.constructor === person2.constructor; // true, 都是指向Person
 ```
 * 可以用instanceOf操作符来对象识别, 检测实例是不是某个构造方法的实例
-```
+```js
 person1 instanceOf Object; // true
 person1 instanceOf Person; // true
 ```
@@ -88,7 +88,7 @@ Person.prototype.sayName = function(){
 * 关于原型可以祥见[原型祥解](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_prototype.md)
 ### 6. 组合构造函数和原型模式(**目前自定义类型最常用的模式**)
 > 提示： 每个实例私有的属性放在构造函数里面， 共有的方法和属性放原型里面
-```
+```js
 function Person(name){
 	this.name = name;
 }
@@ -101,7 +101,7 @@ Person.prototype = {
 ```
 ### 7. 动态原型模式
 > 提示： **了解即可-少用** - 在构造函数中用if去判断原型的**任何**一个该有的方法或者属性有没有，没有才添加到原型中
-```
+```js
 function Person(name){
 	this.name = name;
 	if(typeOf this.sayName != "function"){
@@ -113,7 +113,7 @@ function Person(name){
 ```
 ### 8. 寄生构造函数模式(经常是想扩展原生类型方法而又不覆盖原生类型而采取的一种方式)
 > 提示： **了解即可-少用** - 类似工厂模式, 但是用new操作符和构造函数; 跟构造函数模式又不一样，因为返回了自定义对象而覆盖了new操作符自带的对象(所以不能用instanceOf来判断类型)
-```
+```js
 function Person(name){
 	var o = new Object();
 	o.name = name;
@@ -125,7 +125,7 @@ function Person(name){
 var person1 = new Person("Alma");
 ```
 * 经常是想扩展原生类型方法而又不覆盖原生类型而采取的一种方式
-```
+```js
 function SpecialArray(){
 	var specialArray = new Array();
 	specialArray.push.apply(specialArray, arguments);
@@ -134,10 +134,10 @@ function SpecialArray(){
 	};
 	return specialArray;
 }
-```
+```js
 ### 9. 稳妥构造函数模式
 > 提示： **了解即可-少用** - 不用this和new操作符; 返回了自定义对象, 所以不能用instanceOf来判断类型; 优点是私有变量只能用返回对象的暴露的方法来访问(因为没有用this的原因)
-```
+```js
 function Person(name){
 	var o = new Object();
 	var slefName = name;
