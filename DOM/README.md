@@ -10,6 +10,8 @@
 > DOM3(DOM load And Save, DOM Validation)      
 * DOM 支持多种文档类型(html-<!doctype html>, xml-<?xml>)
 * DOM 节点类型(nodeType)常用的有八种(element-1, attribute=2, text-3, comment-8, document-9, documentType-10, documentFragment-11)
+![nodeType_image](https://github.com/dudulaopo833/JS-Projects/blob/master/DOM/DOM.nodeType.jpg)
+![nodeName_and_nodeValue](https://github.com/dudulaopo833/JS-Projects/blob/master/DOM/DOM.nodeName.jpg)
 ```
 属性： 
 DOM.nodeType, DOM.nodeName, DOM.nodeValue, DOM.attributes, DOM.childNodes, 
