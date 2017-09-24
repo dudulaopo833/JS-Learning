@@ -56,7 +56,7 @@ b. 如果重写原型, 那么先实例的对象的原型还是指向以前的默
 
 # 继承
 ### 下图是通过原型来实现继承的结构图(继承的实质丢弃默认原型, **重写原型为另外一个类型的实例**, 利用搜索机制从而找到实例的原型方法)
-![prototype_link](https://github.com/dudulaopo833/JS-Projects/tree/master/JS_Basic_Knowledage/JS_Prototype_Link.jpg)
+![prototype_link](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_Prototype_Link.jpg)
 > 1. 每个构造函数都有一个prototype属性指向原型, 原型都有一个constructor属性指向构造函数, 每个实例都有一个_proto_属性指向原型
 > 2. 所有函数的原型都是Object的实例, 所以每个原型都有_proto_属性指向Object原型; Object原型的原型是null
 > 3. 每个构造函数都有_proto_属性指向Function.prototype
