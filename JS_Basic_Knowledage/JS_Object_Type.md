@@ -34,6 +34,7 @@ Object.defineProperties(objetName, {
 });
 ```
 Object.getOwnPropertyDescriptor();
+Object.create(); // 指定原型去创建对象
 Object.keys(); // 返回所有可枚举的**实例属性**
 Object.getOwnPropertyNames(); // 返回所有**实例属性**, 无论可枚举或者不可枚举
 * 原型:
