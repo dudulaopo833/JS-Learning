@@ -55,6 +55,7 @@ b. 如果重写原型, 那么先实例的对象的原型还是指向以前的默
 > 如果用delete运算符删除掉实例的该属性, 根据搜索机制, 返回的是原型的该属性
 ```js
 function Person(){
+	this.age = 0;
 };
 Person.prototype.name = "Initial";
 Person.prototype.sayName = function(){
@@ -65,11 +66,17 @@ function Alma(){
 };
 Alma.prototype = new Person();
 var alma = new Alma();
+alma.age = 20;
 console.log(alma.name); // Alma
+console.log(alma.age); // 20
 console.log(alma.hasOwnProperty('name')); // true
+console.log(alma.hasOwnProperty('age')); // true
 delete(alma.name);
+delete(alma.age);
 console.log(alma.hasOwnProperty('name')); // false
+console.log(alma.hasOwnProperty('age')); // false
 console.log(alma.name); // Initial
+console.log(alma.age); // 0
 delete(Person.prototype.name);
 console.log(alma.name); // undefined
 ```
