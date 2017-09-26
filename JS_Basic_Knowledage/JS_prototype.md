@@ -34,7 +34,7 @@ Object.getPrototypeOf(person1) === Person.prototype; //true
 ```
 ### 原型与in运算符
 > 1. in运算符会判断某个属性是否在对象中, 无论这个属性是在实例中还是在原型中
-> 2. 配合for来使用, 返回的是可枚举的属性, 无论可枚举属性在实例中还是在原型中; 如果原型
+> 2. 配合for来使用, 返回的是可枚举的属性, 无论可枚举属性在实例中还是在原型中;
 ```js
 for (var prop in objectName){
 }
