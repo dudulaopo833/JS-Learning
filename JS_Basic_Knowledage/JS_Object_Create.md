@@ -86,6 +86,18 @@ Person.prototype.sayName = function(){
 }
 ```
 * 关于原型可以祥见[原型祥解](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_prototype.md)
+* 这里还可以用Object.create()方法来创建对象且指定对象的原型.如下图, person的原型是Person, Person的原型是Object.prototype
+```js
+var Person = {
+	name: "Alma", 
+	sayName: function(){
+  	alert(this.name);
+	}
+}
+var person = Object.create(Person); // person的原型为{name: "Alma", sayName: function(){}}
+console.log(person.name);
+console.log(person.sayName());
+```
 ### 6. 组合构造函数和原型模式(**目前自定义类型最常用的模式**)
 > 提示： 每个实例私有的属性放在构造函数里面， 共有的方法和属性放原型里面
 ```js
