@@ -53,6 +53,26 @@ b. 如果重写原型, 那么先实例的对象的原型还是指向以前的默
 * 访问实例属性的时候, 首先会在实例中搜索该属性, 找到而返回; 找不到搜索实例原型, 找到则返回; 找不到则再向原型的原型查找, 直到找到或者搜索到了原型链的末端
 > 如果实例与原型有同名的属性, 根据搜索机制, 找到了实例的该属性就返回, 所以原型的该属性就被屏蔽或者说覆盖了
 > 如果用delete运算符删除掉实例的该属性, 根据搜索机制, 返回的是原型的该属性
+```js
+function Person(){
+};
+Person.prototype.name = "Initial";
+Person.prototype.sayName = function(){
+	alert(this.name);
+};
+function Alma(){
+	this.name = "Alma"
+};
+Alma.prototype = new Person();
+var alma = new Alma();
+console.log(alma.name); // Alma
+console.log(alma.hasOwnProperty('name')); // true
+delete(alma.name);
+console.log(alma.hasOwnProperty('name')); // false
+console.log(alma.name); // Initial
+delete(Person.prototype.name);
+console.log(alma.name); // undefined
+```
 
 # 继承
 ### 下图是通过原型来实现继承的结构图(继承的实质丢弃默认原型, **重写原型为另外一个类型的实例**, 利用搜索机制从而找到实例的原型方法)
