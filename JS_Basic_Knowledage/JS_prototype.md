@@ -39,10 +39,10 @@ Object.getPrototypeOf(person1) === Person.prototype; //true
 for (var prop in objectName){
 }
 ```
-> 3. 一起使用hasOwnProperty()和in运算符, 就可以确定某个属性是在实例中还是原型中
+> 3. 一起使用hasOwnProperty(**属性字符串**)和in运算符, 就可以确定某个属性是在实例中还是原型中
 ```js
 function hasPrototypeProperty(object, name){
-	return !object.hasOwnProperty(name) && (name in object);
+	return !object.hasOwnProperty(name) && (name in object); // xxx.hasOwnProperty('name')); 
 }
 ```
 ### 原型的动态性
