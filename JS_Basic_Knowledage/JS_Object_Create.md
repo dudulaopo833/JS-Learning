@@ -146,7 +146,7 @@ function SpecialArray(){
 	};
 	return specialArray;
 }
-```js
+```
 ### 9. 稳妥构造函数模式
 > 提示： **了解即可-少用** - 不用this和new操作符; 返回了自定义对象, 所以不能用instanceOf来判断类型; 优点是私有变量只能用返回对象的暴露的方法来访问(因为没有用this的原因)
 ```js
