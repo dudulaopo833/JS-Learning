@@ -32,6 +32,12 @@ person1 instanceOf Person; //true
 Person.prototype.isPrototypeOf(person1); // true
 Object.getPrototypeOf(person1) === Person.prototype; //true
 ```
+### 原型链的图解
+![prototype_link](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_Prototype_Link.jpg)
+> 1. 每个构造函数都有一个prototype属性指向原型, 原型都有一个constructor属性指向构造函数, 每个实例都有一个_proto_属性指向原型
+> 2. 所有函数的原型都是Object的实例, 所以每个原型都有_proto_属性指向Object原型; Object原型的原型是null
+> 3. 每个构造函数都有_proto_属性指向Function.prototype
+> 4. Function构造函数的_proto_属性指向了Function.prototype, Function的原型也是Object.prototype
 ### 原型与in运算符
 > 1. in运算符会判断某个属性是否在对象中, 无论这个属性是在实例中还是在原型中
 > 2. 配合for来使用, 返回的是可枚举的属性, 无论可枚举属性在实例中还是在原型中;
@@ -80,23 +86,6 @@ console.log(alma.age); // 0
 delete(Person.prototype.name);
 console.log(alma.name); // undefined
 ```
-
-# 继承
-### 下图是通过原型来实现继承的结构图(继承的实质丢弃默认原型, **重写原型为另外一个类型的实例**, 利用搜索机制从而找到实例的原型方法)
-![prototype_link](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_Prototype_Link.jpg)
-> 1. 每个构造函数都有一个prototype属性指向原型, 原型都有一个constructor属性指向构造函数, 每个实例都有一个_proto_属性指向原型
-> 2. 所有函数的原型都是Object的实例, 所以每个原型都有_proto_属性指向Object原型; Object原型的原型是null
-> 3. 每个构造函数都有_proto_属性指向Function.prototype
-> 4. Function构造函数的_proto_属性指向了Function.prototype, Function的原型也是Object.prototype
-
-### 继承的6中实现方式
-* 利用原型链实现继承: 重写原型为某个类型的实例, 通过搜索机制, 从而继承了某个类型的属性和方法
-> 提示： 使用原型链实现继承，**缺点**有一如果原型有引用类型, 所有实例都可以操控这个引用类型; 有二在子类型实例时, 不能向超类型的构造函数传递参数; 所以很少单独用原型链, 就有了借用构造函数的方式实现继承 
-* 借用构造函数实现继承
-* 组合原型链和借用构造函数实现继承
-* 原型式继承
-* 寄生式继承
-* 寄生组合式继承
 
 
 
