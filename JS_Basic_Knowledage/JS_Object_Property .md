@@ -66,8 +66,55 @@ Object.defineProperties(book, {
 });
 ```
 ### 读取对象属性的特征，用Object.getOwnPropertyDescriptor()， 返回这个属性的描述符(4个特征值)
+### 每个特征的表现
+* 修改属性的值(value), 是由configurable控制的; **通过属性赋值修改属性的值, 是由writable控制**, 如果writable为false, 那么就不可以通过赋值修改属性的值; **如果writable为fasle, 但是configurable为true**, 那么可以修改属性标签writable为true, 再修改属性的值(或者直接用Object.defineProperty一起指定value为修改的值)
+```js
+var a = {};
+Object.defineProperty(a, 'name', {
+	configurable: true,
+  writable: false,
+  value: "Alma"
+});
+console.log(a.name); // Alma
+Object.defineProperty(a, 'name', {
+	configurable: true,
+  writable: false,
+  value: "Update"
+});
+console.log(a.name); // Update
+a.name = "Third";
+console.log(a.name); // Update
+```
+* 修改属性标签, 是由configurable控制的, 如果configurable为false, 那么不可以修改属性标签; 但是有一个特例, **writable从true改为false是允许的, 即使configurable 为false**,但是writable不可以再从false变成true, 如果configurable是false的话
+```js
+var a = {};
+Object.defineProperty(a, 'name', {
+	configurable: false,
+  writable: true,
+  value: "Alma"
+});
+console.log(a.name); // Alma
+a.name = "Update";
+console.log(a.name); // Update
+/*
+Object.defineProperty(a, 'name', { // TypeError: Cannot redefine property: name
+  enumerable: true
+});*/
+Object.defineProperty(a, 'name', {
+  writable: false
+});
+a.name = "Alma";
+console.log(a.name); // Update
+Object.defineProperty(a, 'name', { // TypeError: Cannot redefine property: name
+  writable: true
+});
+```
+* delete属性, 是由configurable控制的, 如果configurable为false, 那么不可以delete这个属性, 就是说delete属性会返回false; 本质来说这个也属于修改属性标签
+* 修改getter/setter方法, 是由configurable控制的, 如果configurable为false, 那么不可以修改这个属性的getter/setter方法; 本质来说这个也属于修改属性标签
+![property_attribute](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_Object_Propety_Attribute.jpg)
 
 # 读写对象属性
+有读写属性异常，删除属性，检测属性，枚举属性
 ### 读写属性异常
 * 如果某个属性不在对象上， 那么读取的时候，会返回 undefined
 * 如果去读取或者写不存在的属性(undefined)的子集, 会报错
@@ -132,7 +179,11 @@ for (var prop in objectName){
 ```
 > 2. Object.keys()返回所有可枚举的**实例属性**
 > 3. Object.getOwnPropertyNames()返回所有**实例属性**, 无论可枚举或者不可枚举
-
+<<<<<<< HEAD
+xxx
 ![property_attribute](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_Object_Propety_Attribute.jpg)
+xxx
+=======
+>>>>>>> 6873573bcb9066a07fa3066d344a7584eebff581
 
 
