@@ -1,10 +1,8 @@
 # 事件流
-
 * 事件冒泡 - IE和大多数浏览器都支持
 * 事件捕获 
 
 # 事件类型
-
 * HTML事件 （onclick in html）
 	> 缺点： html和js代码耦合性太强， 不能添加多个函数
 * DOM0级事件 （onclick in js）
