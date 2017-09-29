@@ -7,7 +7,7 @@
 * 借用构造函数实现继承 : 思想是在子类型的构造函数内部用超类型的构造函数(当普通函数用call, apply来调用)
 > 1. 解决了共享引用属性的问题, 也解决了向超类型传递参数问题     
 > 2. 需要在调用了超类型构造函数后， 再添加自己的属性, 避免被超类型同名属性覆盖
-> 3. 提示： 使用借用构造函数实现继承, **缺点**有需要继承的方法都必须写在构造函数里面，就没有办法复用了; 所以才有了下面的组合原型链和借用构造函数继承
+> 3. 提示： 使用借用构造函数实现继承, **缺点**有需要继承的方法都必须写在构造函数里面，就没有办法复用了(所有实例的同名方法其实是不同的对象); 所以才有了下面的组合原型链和借用构造函数继承
 * 组合原型链和借用构造函数实现继承(**最常用的继承方式**)
 > 1. 思想：使用原型链实现对原型继承, 使用构造函数实现实例属性继承
 > 2. **缺点**： 调用了两次超类型构造函数！ 第一次重写原型时, 实例执行了构造函数且原型有超类属性; 第二次在实例时候执行子类构造函数, call/apply 了超类构造函数生成了实例属性, 因为同名所以屏蔽调了原型的属性.
@@ -29,7 +29,7 @@ SuperType.prototype.getName = function() {
 function SubType () {
   this.age = 18;
 }
-SubType.prototype = new SuperType(); // 继承SuperType, SubType的原型是SuperType的实例, 拥有实例属性name, 有SuperType的实例方法getName
+SubType.prototype = new SuperType(); // 继承SuperType, SubType的原型是SuperType的实例, 拥有实例属性name, 有SuperType的原型方法getName
 SubType.prototype.getAge = function() { // 在改变原型之后, 再向原型添加方法
   return this.age;
 }
@@ -59,8 +59,34 @@ alert(instance2.colors); // green, red
 alert(instance2.getName()); // Ma
 ```
 * 组合原型链和借用构造函数实现继承(**最常用的继承方式**)
-> 思想：使用原型链实现对原型继承, 使用构造函数实现实例属性继承
-> 缺点： 调用了两次构造函数！ 第一次重写原型时, 实例执行了构造函数且原型有超类属性; 第二次在实例时候执行子类构造函数, call/apply 了超类构造函数生成了实例属性, 因为同名所以屏蔽调了原型的属性.
+```js
+function SuperType(name) {
+  this.colors = ["green","red"];
+  this.name = name;
+};
+SuperType.prototype.getName = function(){
+  alert(this.name);
+};
+
+function SubType(name, age) {
+  SuperType.call(this, name); //可以传递参数, 且继承了SuperType的colors和name 属性
+  this.age = age; // 在调用了构造函数之后, 再写自己的属性, 避免被父类的同名属性覆盖
+};
+SubType.prototype = new SuperType(); // 继承SuperType, SubType的原型是SuperType的实例, 原型上拥有实例属性name, colors, 有SuperType的原型方法getName
+SubType.prototype.getAge = function() {
+  alert(this.age);
+};
+var instance1 = new SubType("Alma", 18);
+instance1.colors.push("Alma");
+alert(instance1.colors); // green, red, Alma
+instance1.getName(); // Alma
+instance1.getAge(); // 18
+
+var instance2 = new SubType("Ma", 28);
+alert(instance2.colors); // green, red
+instance2.getName(); // Ma
+instance2.getAge(); // 28
+```
 * 原型式继承
 > Object.create()就是原型式继承
 * 寄生式继承
