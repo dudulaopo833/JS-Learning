@@ -24,12 +24,12 @@
 > DOM3(DOM load And Save, DOM Validation) 
 
 ### 详细知识
-关于DOM参考[这个总结]()
-关于BOM参考[这个总结]()
+关于DOM参考[这个总结](https://github.com/dudulaopo833/JS-Projects/tree/master/DOM)
+关于BOM参考[这个总结](https://github.com/dudulaopo833/JS-Projects/tree/master/BOM)
 
 ### 例子 
-* [DOM Event - Mouse Event - QQ drag](): 用拖拽QQ面板的小例子来演示了Mouse Event; 涉及到了DOM元素属性clientWidth,scrollWidth,offsetWidth,offsetLeft,className,innerHTML等;  以及DOM事件对象属性clientX, clientY,offsetX,target,type等
-* [DOM Event - Mouse Event - SlidingDoor](): js实现移动门的效果
-* [DOM_domReady](): 自己实现了domReady的功能，并且和window.onload 对象，也给了各大前端框架的domReady的实现
+* [DOM Event - Mouse Event - QQ drag](https://github.com/dudulaopo833/JS-Projects/tree/master/DOMEvent_MouseEvent_QQ_Drag): 用拖拽QQ面板的小例子来演示了Mouse Event; 涉及到了DOM元素属性clientWidth,scrollWidth,offsetWidth,offsetLeft,className,innerHTML等;  以及DOM事件对象属性clientX, clientY,offsetX,target,type等
+* [DOM Event - Mouse Event - SlidingDoor](https://github.com/dudulaopo833/JS-Projects/tree/master/DOMEvent_MouseEvent_SlidingDoor): js实现移动门的效果
+* [DOM_domReady](https://github.com/dudulaopo833/JS-Projects/tree/master/DOMReady_Simulate): 自己实现了domReady的功能，并且和window.onload 对象，也给了各大前端框架的domReady的实现
 
 

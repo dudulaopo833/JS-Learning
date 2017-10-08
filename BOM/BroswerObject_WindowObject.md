@@ -2,7 +2,7 @@
  * 每个窗口或者iframe都会有一个window对象，用于操作这个窗口或者iframe
  * 所以这个window是一个全局对象，它的属性和方法都可以直接访问，不需要加window.前缀. 比如alert(), setInterval(), onload()方法; location, document 属性
  * 每个window对象，都有history, document, navigator, screen对象的只读引用属性; 所以也可以直接不需要window.前缀来用这些引用对象
- * 每个window对象，都有location对象属性， [location对象](https://github.com/dudulaopo833/JS-Projects/blob/master/BroswerObject_WindowObject_LocationObject.md)用于操作url
+ * 每个window对象，都有location对象属性， [location对象](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/BroswerObject_WindowObject_LocationObject.md)用于操作url
  
  ## 窗口操作
  * 只读属性 ： closed, defaultStatus, name, status, pageXOffset, pageYOffset,

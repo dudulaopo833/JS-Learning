@@ -1,7 +1,7 @@
 # Broswer Object（都是全局对象）: 
 > 有 Window, Location, History, Navigator, Screen 等对象
 
-### 1. [Window Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BroswerObject_WindowObject.md) 
+### 1. [Window Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/BroswerObject_WindowObject.md) 
 * Window对象表示浏览器中打开的窗口，包含对浏览器当前页面或者iframe操作的一系列属性和方法; 注意浏览器可以打开多个页面
 * Window对象具有双重身份, 它既是JS访问浏览器的接口, 又是JS的global对象
 > 1. 作为global对象, 它上面自定义的属性是可以delete的, 但是如果是定义全局变量, 则不能delete; 这是因为var定义的全局变量, 虽然是挂在了window对象上, 但是它的configurable特性是false
@@ -19,7 +19,7 @@ var newValue = window.oldValue; // 不会报错, 仅仅是访问不到这个属�
 var secondValue = oldValue; // ReferenceError: oldValue is undefined
 ```
 
-### 2. [Location Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BroswerObject_WindowObject_LocationObject.md): 表示窗口中当前显示的文档(所加载文档)的Web地址(url)的相关信息
+### 2. [Location Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/BroswerObject_WindowObject_LocationObject.md): 表示窗口中当前显示的文档(所加载文档)的Web地址(url)的相关信息
 
 ### 3. History Object: History对象设计来表示窗口的浏览历史.
 > a. 只有history.length一个属性，表示当前浏览器历史列表中的url数量
