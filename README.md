@@ -1,7 +1,12 @@
 # JS 总结
-* CSS ---style---> HTML <---DOM-BOM-ESCAMScript--- JS 
+* CSS ---(style)---> HTML <---(DOM-BOM-ESCAMScript)--- JS 
 * JS共包含三部分: ECMAScript(一个标准), DOM(Document Object Model), BOM(Broswer Object Model)
 * 每个部分都有一些规范, 比如ECMAScript, DOM - W3C Standard, BOM - HTML5 standard
+
+### JS文件在浏览器加载
+* 服务器传送JS文件是用MIME type为application/x-javascript
+* 浏览器加载(解析)JS文件是一个接一个, 按先后顺序来的
+* <script>标签有async, defer, src, type等属性
 
 ### ESCAMScript(JS standard): JS标准  
 > Array, String, Boolen, Number   
