@@ -6,6 +6,6 @@
 
 # 方法：
 * document.createDocumentFragment(), document.implementation.createDocument(null, 'HTML', null),
-* document.getElementById('id'), document.getElementsByTagName('elementTag'), 
+* document.getElementById('id'), document.getElementsByTagName('elementTag'), document.getElementsByName('name');
 * document.createElement('elmentTag'), DOM.appendChild(DOM)
 
