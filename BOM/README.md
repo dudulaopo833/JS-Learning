@@ -22,7 +22,7 @@ var secondValue = oldValue; // ReferenceError: oldValue is undefined
 ### 2. [Location Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/BroswerObject_WindowObject_LocationObject.md): 表示窗口中当前显示的文档(所加载文档)的Web地址(url)的相关信息(**很有用的一个window属性**)
 > 很多框架都会基于这个history对象去封装router；也有很多框架是基于location.hash去实现单页应用(不重新加载文档)
 
-### 3. [Navigator Object](): Navigator对象包含有关浏览器的信息,有插件检测和客户端检测
+### 3. [Navigator Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/BrowserObject_WindowObject_Navigator.md): Navigator对象包含有关浏览器的信息,有插件检测和客户端检测（**一个很有用的window属性**）
 > 有些插件或者说框架会去extend这个navigator对象, 比如**cordova**
 
 ### 4. History Object: History对象设计来表示窗口的浏览历史.
@@ -34,6 +34,10 @@ var secondValue = oldValue; // ReferenceError: oldValue is undefined
 * 常用属性： 
 width, height, availWidth, availHeight(除了任务栏之后的高度)
 colorDepth, fontSmoothingEnabled(启用字体平滑), orientation(横竖屏), updateInterval
+* 有时候会用screen对象中的一些属性来调整浏览器窗口的大小
+```js
+window.resizeTo(screen.availWidth, screen.availHeight);
+```
 
 ### 6. cookie对象
 
