@@ -20,17 +20,15 @@ var secondValue = oldValue; // ReferenceError: oldValue is undefined
 ```
 
 ### 2. [Location Object](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/BroswerObject_WindowObject_LocationObject.md): 表示窗口中当前显示的文档(所加载文档)的Web地址(url)的相关信息(**很有用的一个window属性**)
+> 很多框架都会基于这个history对象去封装router；也有很多框架是基于location.hash去实现单页应用(不重新加载文档)
 
-### 3. History Object: History对象设计来表示窗口的浏览历史.
-> a. 只有history.length一个属性，表示当前浏览器历史列表中的url数量
-> b. 有back(), forward(), go(number|url) 三个方法
-> c. 很多框架都会基于这个history对象去封装router；也有很多框架是基于location.hash去实现单页应用(不重新加载文档)
+### 3. [Navigator Object](): Navigator对象包含有关浏览器的信息,有插件检测和客户端检测
+> 有些插件或者说框架会去extend这个navigator对象, 比如**cordova**
 
-### 4. Navigator Object: Navigator对象包含有关浏览器的信息.
-它的属性描述了正在使用的浏览器，可以用这些属性进行平台专用的配置
-> a. navigator.plugins: 列举了浏览器已经安装的插件
-> b. navigator的有这些常用的属性： userAgent, cookieEnabled, language, appName, appVersion, appCodeName.
-> c. 有些插件或者说框架会去extend这个navigator对象, 比如**cordova**
+### 4. History Object: History对象设计来表示窗口的浏览历史.
+> 1. 只有history.length一个属性，表示当前浏览器历史列表中的url数量
+> 2. 有back(), forward(), go(number|url) 三个方法
+> 3. 很多框架都会基于这个history对象去封装router；也有很多框架是基于location.hash去实现单页应用(不重新加载文档)
 
 ### 5. Screen Object：Screen对象存放着有关浏览器显示屏幕的信息.(不是很有用的window属性)
 * 常用属性： 
