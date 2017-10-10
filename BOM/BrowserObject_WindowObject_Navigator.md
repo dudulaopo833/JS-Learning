@@ -1,6 +1,6 @@
 
 ## Navigator的属性描述了正在使用的浏览器，可以用这些属性进行平台专用的配置
-> 1. navigator的有这些常用的属性： userAgent, userLanguage, userProfile, cookieEnabled, language, appName, appVersion, appCodeName, mimeTypes, onLine, plugins, platform
+> 1. navigator的有这些常用的属性： userAgent, plugins, platform, userLanguage, userProfile, cookieEnabled, language, appName, appVersion, appCodeName, mimeTypes, onLine
 > 2. 有些插件或者说框架会去extend这个navigator对象, 比如**cordova**
 
 ## 检测插件
@@ -67,7 +67,19 @@ function hasFlashPlugin(){
 > 5. Presto: Opera
 
 * 检测用户代理, 检测呈现引擎和最低版本就可以了; 顺序是按照伪装程度从高到低; 先检测Opera, 再来是WebKit, 第三是KHTML, 第四是Gecko, 最后是IE
-识别呈现引擎, 识别浏览器, 识别平台, 识别操作系统(包含识别移动设备和识别游戏系统)的util参考[这里]()
+> 1. 识别opera, 必须检测window.opera对象， window.opera.version()返回opera浏览器版本
+> 2. 识别WebKit, 可以检测用户代理字符串中的AppleWebKit这个独一无二的标志
+> 3. 识别KHTML, 可以检测用户代理字符串中的KHTML或者早期的Konqueror标志
+> 4. 识别Gecko，可以检测用户代理字符串中的 rv:xxx) Gecko/xxx标志
+> 5. 识别IE, 可以检测用户代理字符串中的MSIE
+
+* 检测浏览器, 主要是区分WebKit呈现引擎中是Chome还是Safari, 以及区分Gecko呈现引擎中是firefox
+> 1. 识别chrome或者safari, 可以检测用户代理字符串有没有Chrome标志
+> 2. 识别firefox, 可以检测用户代理字符串有没有Firefox标志
+
+* 检测平台, 可以用navigator.platform 就足够了, 因为这个属性只会返回Win32, Win64, MacPPC, MacIntel, JX11, Linux i686; 但是如果要具体检测win中是哪种, 哪种移动设备, 哪种游戏系统, 都需要检测用户代理字符串
+
+* 识别呈现引擎, 识别浏览器, 识别平台, 识别操作系统(包含识别移动设备和识别游戏系统)的util参考[这里](https://github.com/dudulaopo833/JS-Projects/blob/master/BOM/recognizeClientUtil.js)
 
 
 
