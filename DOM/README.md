@@ -1,11 +1,14 @@
+# DOM(文档对象模型 Document Object Model)
+* DOM是针对HTML和XML文档的一个API
+
 # 其他总结
 * [DOM Attribute and Method](): 记录了DOM的一些基础常用属性和方法
-* [DOM Object](): 记录了DOM对象的一些基础知识
+* [DOM Object](): 记录了DOM各种类型对象的基础知识
 * [DOM Event](): 说明了两种事件流，说明了 html event, dom0 event, dom2 event 和 IE event; 并且说明了怎么用能力检测来兼容浏览器事件处理
 
 # Summary
 ### Related vedio: http://www.imooc.com/video/9491  
-* DOM(Document Object Model): 首先浏览器会把html内容解析成文档对象模型，然后就可以用docment.xxx, window.xxx 去操作DOM元素   
+* DOM(Document Object Model): 首先浏览器会把html内容解析成文档对象模型，然后就可以用document.xxx, window.xxx 去操作DOM元素   
 > DOM0 (就是DOM标准出来之前)     
 > DOM1(DOM Core, DOM HTML)       
 > DOM2(DOM Views, DOM Events, DOM style, DOM Traversal and Range)     

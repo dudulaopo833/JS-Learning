@@ -70,4 +70,20 @@ var eventUtil = {
 	> 只有 window.event 对象
 	> type, srcElement, clientX, clientY 属性
 	> cancelBubble, returnValue（false 为阻止默认事件） 属性
+
+!!!!!!!!!!!!!!!!!!!!!!!!
+# event对象
+------------------------------------------------------------------------
+### 常用事件类型属性：
+> onclick/ondbclick, onchange,    
+> onkeydown/up, onkeypress, onmousedown/up,    
+> onmouseover, onmousemove, onmouseout,    
+> onblur, onfocus, onselect, onsubmit,    
+> onload(和window.onload不一样), onunload,   
+### 常用方法: 
+> DOM : preventDefault(), stopPropagation()   
+> IE: returnValue, cacelBubble属性
+### 常用属性： 
+> DOM: target, type, keyCode, clientX, clientY, screenX, screenY   
+> IE: srcElement, type, keyCode, offsetX, offsetY   
 	
