@@ -78,7 +78,6 @@ alert(returnNode === newNode); // true
 > 5. cloneNode(true/false): true为深复制, 复制节点及节点的所有子节点树(包括节点的所有后代); 复制后的返回节点为**文档孤点**需要添加到文档中的某个位置; 还需要注意复制仅仅复制特性, **不会复制Javascript属性**(事件处理程序); 而IE中会复制事件处理程序, 建议复制之前移除事件处理程序
 > 6. normolize(): 这个方法用于处理文本节点, 因为不同解析器或者DOM操作可能出现文本节点不包含文本, 接连出现两个文本节点
 
-
 #  document类型对象
 --------------------------------------------------------------------
 ### document节点是文档根节点, document对象是window对象的一个属性, 所以可以用作全局变量来用
@@ -94,13 +93,21 @@ alert(returnNode === newNode); // true
 > 2. 访问HTTP头部得属性: document.URL, document.domain, document.referrer, document.cookie, document.lastModified, document.baseURI
 > 3. 集合属性: document.all, document.anchors(<a>), document.forms(<form>), document.images(<img>), document.links(<link>), document.applets(<applet>),
 > 4. 检测功能属性: document.implementation属性, document.implementation.hasFeature(feature, featureVersion); 但这个不是很准确, 所以需要同时使用能力检测
-> 5. 继承Node类型的属性: element.nodeName, element.nodeType, element.nodeValue, element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, element.childNodes[]  > element.nodeName, element.nodeType, element.nodeValue, element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, element.childNodes[] 
+> 5. 继承Node类型的属性: element.nodeName, element.nodeType, element.nodeValue, element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, element.childNodes[]  > element.nodeName, element.nodeType, element.nodeValue, element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, element.childNodes[]
+> 6. HTML5扩展的属性: document.readyState(只有loading和complete两个值), document.compatMode(只有CSS1
+Compat和BackCompat两个值)， document.head(<head>), document.charset， document.defaultCharset
+> 7. **专有扩展**: document.documentMode, 要强制以某种模式渲染页面, 可以使用HTTP头部信息X-UA-Copatible来设置, 或者通过等价的<meta>标签来设置
+```html
+<meta http-equiv="X-UA-Compatible" content="IE=IEVersion"> <!-- IEVersion有Edge, EmulateIE9, EmulateIE8, EmulateIE7, 9, 8, 7, 5几种类型 -->
+```
 
 ### 方法: 
 * 查找节点方法
 > 1. HTML和XML共有的方法： document.getElementById(), document.getElementsByTagName()
 > 2. HTML自有方法： document.getElementsByName()标签要有name属性
 Tip: document.getElementsByTagName()和document.getElementsByName()返回一个HTMLCollection的对象, 类似NodeList, 类似数组, 可以用length, 方括号, item(), namedItem()来读取
+> 3. 扩展的CSS选择符API: document.querySelector(), document.querySelectorAll()
+> 4. HTML5扩展的与类相关方法: document.getElementsByClassName(), 接收一个包含一个或多个**类名的字符串**(不是CSS选择符), 返回一个nodeList类数组对象
 
 * 文档的写入操作方法
 > document.open(mimeType, replace), document.write(), document.writeIn(), document.close();
@@ -115,11 +122,10 @@ Tip: document.getElementsByTagName()和document.getElementsByName()返回一个H
 * 继承自Node类型的方法:
 > appendChild(), insertBefore(), replaceChild(), removeChild(), cloneNode(), hasChildNodes(), normalize()
 
-### document对象方法！！！！！！！！！！！！！！！！！！
-> 常用的： 
-```js 
-b. document.getElementsByClassName(IE9+), document.querySelector()(IE8+), document.querySelectorAll()(IE8+) 
-```
+* **专有扩展**方法:
+> 1. contains()：判断包含关系
+> 2. compareDocumentPosition()： 判断两个节点的位置关系, 有1-无关, 2-居前, 4-居后, 8-包含, 16-被包含; 如果返回16效果就和contains一样
+
 
 # element类型对象
 ------------------------------------------------------------------------
@@ -137,11 +143,39 @@ b. document.getElementsByClassName(IE9+), document.querySelector()(IE8+), docume
 * element类型的自有属性：
 > 1. element.tagName(等于element.nodeName)
 > 2. element.id, element.title, element.dir(ltr/rtl), element.className(与class对应), element.style, element.tabIndex
-> 3. element.dataset: 用来访问自己定义的属性, html5中自定义属性都以data-作为前缀
-> 4. element.attributes: element类型是使用attributes属性的唯一一个DOM节点类型. elenent.attributes属性包含一个NamedNodeMap(类似NodeList). 有getNamedItem(name), removeNamedItem(name), setNamedItem(node), item(pos)方法
+> 3. element.attributes: element类型是使用attributes属性的唯一一个DOM节点类型. elenent.attributes属性包含一个NamedNodeMap(类似NodeList). 有getNamedItem(name), removeNamedItem(name), setNamedItem(node), item(pos)方法
+
+* DOM扩展的元素遍历属性：(不用担心空白文本节点的问题) 
+> 1. childElementCount: 相当于childNodes.length
+> 2. firstElementChild: 相当于parentElement.firstChild
+> 3. lastElementChild: 相当于parentElement.lastChild
+> 4. previousElementSibling: 相当于element.previousSibling
+> 5. nextElementSibling: 相当于element.nextSibling
+
+* HTML5扩展的属性
+> 1. classList属性: 是一个DOIMTokenList的集合, 可以用以下方法来操控class属性, 而不用className属性来操控
+```js
+element.classList.add(value)
+element.classList.contains(value)
+element.classList.remove(value)
+element.classList.toggle(value)
+```
+> 2. 焦点管理属性document.activeElement 和document.hasFocus()方法： 一般查询文档哪个元素获得焦点以及确定文档是否获得焦点, 是提高Web应用的无障碍性
+> 3. 自定义属性: 以data-为前缀, 可以用element.dataset属性来访问自己定义的属性; element.dataset是一个键值对的DOMStringMap的实例
+> 4. 插入标记: element.innerHTML, element.outerHTML包括自己); 有insetAdjacentHTML()方法
+
+* **专有扩展**: 
+> 1. element.children属性, 相当于childNodes属性, 为了处理文本节点中的空白符差异
+> 2. 插入文本: element.innerText, element.textContent, element.outerText
+```js
+function getInnerText(element) {
+    return (typeOf element.textContent == "string") ?
+        element.textContent : element.innerText;
+}
+```
+
 
 ！！！！！！！！！！！！！！！！！
-> 4. element.innerHTML, element.innerText(不包含隐藏文本), element.textContent(包含隐藏文本), 
 > 5. element.offsetHeight, element.offsetWidth, element.clientWidth, element.clientHeight, element.scrollWidth, element.scrollHeight
 > 6. element.offsetLeft, element.offsetTop, element.offsetParent, element.scrollleft, element.scrollTop
 > 7. 不常用的element.isContentEditable, element.contentEditable
@@ -156,6 +190,57 @@ b. document.getElementsByClassName(IE9+), document.querySelector()(IE8+), docume
 
 * 创建element节点: document.createElement()
 
+* 扩展的CSS选择符API: element.querySelector(), element.querySelectorAll(), element.matchesSelector()
+> 1. element.querySelector(CSS选择符), 接收一个CSS选择符, 返回第一个匹配元素
+> 2. element.querySlectorAll(CSS选择符), 接收一个CSS选择符, 返回一个NodeList, 所以返回结果可以用方括号, item()来调用
+> 3. element.matchesSelector(), 如果调用元素与该选择符匹配, 返回true; 下面是用能力检测来兼容各浏览器的做法
+```js
+function matchesSelector(element, selector) {
+    if (element.matchesSelector) {
+        return element.matchesSelector(selector);
+    } else if (element.msMatchesSelector) {
+        return element.msMatchesSelector(selector);
+    } else if (element.mozMatchesSelector) {
+        return element.mozMatchesSelector(selector);
+    } else if (element.webkitMatchesSelector) {
+        return element.webkitMatchesSelector(selector);
+    } else {
+        throw new Error("Not Support matchesSelector");
+    }
+}
+```
+
+* HTML5扩展的方法
+> 1. 与类相关方法: document.getElementsByClassName(), 接收一个包含一个或多个**类名的字符串**(不是CSS选择符), 返回一个nodeList类数组对象
+> 2. 焦点管理判断方法document.hasFocus()： 一般查询文档哪个元素获得焦点以及确定文档是否获得焦点, 是提高Web应用的无障碍性
+> 3. 插入标记: insetAdjacentHTML()方法
+> 4. element.scrollIntoView(): 如果给这个方法传入参数true, 或者不传参数, 那么窗口滚动之后会让调用元素的顶部与视口顶部尽量平齐
+
+* **专有扩展**方法:
+> 1. contains()：判断包含关系
+> 2. compareDocumentPosition()： 判断两个节点的位置关系, 有1-无关, 2-居前, 4-居后, 8-包含, 16-被包含; 如果返回16效果就和contains一样
+```js
+function contains(refNode, otherNode) {
+    if (typeOf refNode.contains == "function" && (!client.engine.webkit || client.engine.webkit >= 522)) {
+        return refNode.contains(otherNode);
+    } else if (typeOf refNode.compareDocumentPosition == "function") {
+        return !!(refNode.compareDocumentPosition(otherNode) & 16);
+    } else {
+        var node = otherNode.parentNode;
+        do {
+            if ( node === refNode) {
+                return true;
+            } else {
+                node = node.parentNode;
+            }
+        } while (node !== null);
+
+        return false;
+    }
+}
+```
+> 3. 滚动相关: element.scrollIntoViewIfNeeded(alignCenterFlag), element.scrollByLines(lineCount), element.scrillByPages(pageCount), 但是还是HTML5的element.scrollIntoView()方法因为已经规范, 所以推荐用element.scrollIntoView()
+
 ！！！！！！！！！！！！！！！！！！！！！
 > 5. element.hasAttribute(),
 > 6. element.isEqualNode(), element.isSameNode()
@@ -165,7 +250,19 @@ b. document.getElementsByClassName(IE9+), document.querySelector()(IE8+), docume
 * 有两类特殊的属性, 一种是style属性, 一种是onclick这样的事件处理程序属性.所以建议取自定义的属性时, 才用getAttribute(方法)
 > 1. style属性: 如果用属性element.style来访问则返回一个**对象**, 如果用getAttribute(style)访问返回包含**CSS文本**
 > 2. onclick事件处理程序属性: 如果用属性element.onclick来访问返回一个**JS函数**, 如果用getAttribute(onclick)返回**相应代码的字符串**
-
+> 3. 所有返回nodeList的方法因为元素从文档树中删除后, 元素与事件处理程序之间的绑定关系在内存中并没有一并删除， 所以一般性能比较差, 所以在用之前先手工删除要被填的元素的所有事件处理
+```js
+// 性能差的:
+for(var i = 0, len = valuse.length; i < len; i ++>){
+    ul.innerHTML +="<li>" + values[i] + "</li>"; 
+}
+// 性能好的
+var itemsHTML = "";
+for(var i = 0, len = valuse.length; i < len; i ++>){
+    itemsHTML +="<li>" + values[i] + "</li>"; 
+}
+ul.innerHTML = itemsHTML;
+```
 
 # attribute类型
 ------------------------------------------------------------------------
@@ -175,8 +272,8 @@ b. document.getElementsByClassName(IE9+), document.querySelector()(IE8+), docume
 > 4. parentNode是null, 
 > 5. 没有子节点
 
-* 属性： 
-> attr.isId, attr.name, attr.value, 
+* 属性：{name: xxx, value: xxx, specified: xxx}
+> attr.isId, attr.name, attr.value, attr.specified
 
 * 方法: 
 > 1. document.createAttribute()
