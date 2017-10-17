@@ -45,6 +45,7 @@ var man = {
   },
   set age(val){
     this.age = val;
+  }
 }
 console.log(man.age); // 27
 man.age = 100;
