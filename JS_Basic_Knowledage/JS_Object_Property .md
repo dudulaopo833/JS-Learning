@@ -180,6 +180,3 @@ for (var prop in objectName){
 ```
 > 2. Object.keys()返回所有可枚举的**实例属性**
 > 3. Object.getOwnPropertyNames()返回所有**实例属性**, 无论可枚举或者不可枚举
-
-![property_attribute](https://github.com/dudulaopo833/JS-Projects/blob/master/JS_Basic_Knowledage/JS_Object_Propety_Attribute.jpg)
-
