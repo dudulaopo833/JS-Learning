@@ -173,12 +173,20 @@ function getInnerText(element) {
         element.textContent : element.innerText;
 }
 ```
-
-
-！！！！！！！！！！！！！！！！！
-> 5. element.offsetHeight, element.offsetWidth, element.clientWidth, element.clientHeight, element.scrollWidth, element.scrollHeight
-> 6. element.offsetLeft, element.offsetTop, element.offsetParent, element.scrollleft, element.scrollTop
-> 7. 不常用的element.isContentEditable, element.contentEditable
+* DOM2属性
+1. element.style: 如果是短划线的CSS属性名，则必须转换成驼峰大小写形式(比如backgroundImage); 特殊的有element.cssFloat, elment.className; element.style属性有下面的方法或者属性
+```js
+element.style.cssText;
+element.style.getPropertyValue(propertyName);
+element.style.item(index);
+element.style.removeProperty(propertyName);
+```
+2. document.defaultView.getComputedStyle()得到计算之后的样式; IE中是element.currentSytle属性
+3. 元素大小: 
+> 1. 偏移量(element.offsetHeight, element.offsetWidth, element.offsetLeft, element.offsetTop, element.offsetParent) - 包含边框
+> 2. 客户区大小(element.clientHeight, element.clientWidth) - 不包含边框
+> 3. 滚动大小(element.scrollHeight, element.scrollWidth, element.scrollLeft, element.scrollTop)
+> 4. element.getBoundingClientRect()返回一个矩形对象, 包含left, top, right, bottom, 给出了元素在页面中相对于视口的位置
 
 ### element对象方法： 
 * 继承自Node类型的方法： 
