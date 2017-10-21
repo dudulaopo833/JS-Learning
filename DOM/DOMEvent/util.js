@@ -37,5 +37,9 @@ var eventUtil = {
 
 	getTarget: function(e){
 		return e.target? e.target : e.srcElement;
+	}, 
+
+	getEvent: function(e){
+		return e ? e: window.event;
 	}
 };

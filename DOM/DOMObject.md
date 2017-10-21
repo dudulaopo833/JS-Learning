@@ -221,12 +221,13 @@ function matchesSelector(element, selector) {
 * HTML5扩展的方法
 > 1. 与类相关方法: document.getElementsByClassName(), 接收一个包含一个或多个**类名的字符串**(不是CSS选择符), 返回一个nodeList类数组对象
 > 2. 焦点管理判断方法document.hasFocus()： 一般查询文档哪个元素获得焦点以及确定文档是否获得焦点, 是提高Web应用的无障碍性
-> 3. 插入标记: insetAdjacentHTML()方法
+> 3. 插入标记: insertAdjacentHTML()方法
 > 4. element.scrollIntoView(): 如果给这个方法传入参数true, 或者不传参数, 那么窗口滚动之后会让调用元素的顶部与视口顶部尽量平齐
 
 * **专有扩展**方法:
-> 1. contains()：判断包含关系
-> 2. compareDocumentPosition()： 判断两个节点的位置关系, 有1-无关, 2-居前, 4-居后, 8-包含, 16-被包含; 如果返回16效果就和contains一样
+> 0. element.hasAttribute(),
+> 1. element.contains()：判断包含关系
+> 2. element.compareDocumentPosition()： 判断两个节点的位置关系, 有1-无关, 2-居前, 4-居后, 8-包含, 16-被包含; 如果返回16效果就和contains一样
 ```js
 function contains(refNode, otherNode) {
     if (typeOf refNode.contains == "function" && (!client.engine.webkit || client.engine.webkit >= 522)) {
@@ -248,11 +249,7 @@ function contains(refNode, otherNode) {
 }
 ```
 > 3. 滚动相关: element.scrollIntoViewIfNeeded(alignCenterFlag), element.scrollByLines(lineCount), element.scrillByPages(pageCount), 但是还是HTML5的element.scrollIntoView()方法因为已经规范, 所以推荐用element.scrollIntoView()
-
-！！！！！！！！！！！！！！！！！！！！！
-> 5. element.hasAttribute(),
-> 6. element.isEqualNode(), element.isSameNode()
-> 7. 不常用的 element.toString()
+> 4. element.isEqualNode(), element.isSameNode()
 
 ### 一些提示
 * 有两类特殊的属性, 一种是style属性, 一种是onclick这样的事件处理程序属性.所以建议取自定义的属性时, 才用getAttribute(方法)
