@@ -70,7 +70,9 @@
 * 触摸事件： touchstart, touchmove, touchend; 都可以冒泡, 每个触摸事件的event对象都提供了鼠标事件常见属性(bubbles,  cancelable, view, clientX, clientY, screenX, screenY, detail, altKey, shiftKey, altKey, ctrlKey, metaKey); 除此还有touches, targetTouches, changeTouches三个Touch对象数组, 每个touch对象都有identifier, target, clientX/Y, pageX/Y, screenX/Y
 * 在触摸屏上事件的发生顺序是: touchstart->mouseover->mousemove->mousedown->mouseup->click->touchend
 * 手势事件：gesturestart, gesturechange, gestureend; 每个手势事件的event对象都提供了鼠标事件属性(bubbles, cancelable, view, clientX, clientY, screenX, screenY, detail, altKey, shiftKey, ctrlKey, metaKey); 此外包含两个属性rotation和scale
-> onsubmit, onchange 
+### 9. 表单事件
+* 传统表单事件: submit, reset, change, select
+* 剪贴板事件: beforecopy, copy, beforecut, cut, beforepaste, paste
 
 # 内存和性能 
 ------------------------------------------------------------------------
