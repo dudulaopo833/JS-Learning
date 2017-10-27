@@ -38,6 +38,27 @@ Object.getPrototypeOf(person1) === Person.prototype; //true
 > 2. 所有函数的原型都是Object的实例, 所以每个原型都有_proto_属性指向Object原型; Object原型的原型是null
 > 3. 每个构造函数都有_proto_属性指向Function.prototype
 > 4. Function构造函数的_proto_属性指向了Function.prototype, Function的原型也是Object.prototype
+
+### 原型链特例
+1. 不是所有的函数都有原型
+```js
+var obj1 = {name: "Alma"};
+alert(obj1.__proto__ === Object.prototype); // true
+obj1.toString();
+
+var obj2 = Object.create(null);
+alert(obj2.__proto__); // undefined
+obj2.toString(); // obj2.toString is not a function
+```
+2. 不是所有对象都有prototype属性
+```js
+function abc(){};
+abc.prototype; // {constructor: f; __proto__: Object.prototype}
+var binded = abc.bind(null);
+typeof binded; // "function"
+binded.prototype; // undefined;
+```
+
 ### 原型与in运算符
 > 1. in运算符会判断某个属性是否在对象中, 无论这个属性是在实例中还是在原型中
 > 2. 配合for来使用, 返回的是可枚举的属性, 无论可枚举属性在实例中还是在原型中;
