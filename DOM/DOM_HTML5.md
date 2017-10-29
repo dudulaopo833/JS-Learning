@@ -54,7 +54,18 @@ var text = event.dataTransfer.getData("text");
 # 历史状态管理
 ----------------------------------------------------------
 * 使用hashchange事件可以知道URL参数发生了什么变化
-* HTML5通过更新history对象为管理历史状态提供了方便, 提供了pushState()和replaceState()方法; 但是这个两个方法仅仅是改变历史状态栈和浏览器地址栏, 但是它不会真的向服务器发送请求来加载新的页面
+* HTML5通过更新history对象为管理历史状态提供了方便, 提供了pushState()和replaceState()方法; 
+* 但是这个两个方法仅仅是改变历史状态栈和浏览器地址栏, 但是它不会真的向服务器发送请求来加载新的页面
+* hash也是仅仅改变浏览器地址栏, 不会触发onload事件; 但是如果用location.search来重新指定地址栏中的search会触发浏览器load事件
+* 这两个事件会触发window的popstate事件, popstate事件的事件对象有一个state属性, 可以获取传的对象
+* pushState()/replaceState()不会设置第三个参数为跨域; 如果跨域会报错, 且触发浏览器刷新
 ```js
-history.pushState({name: "Nicholas"}, "title", "nicholas.html");
+history.pushState({name: "Nicholas"}, "title", "nicholas.html"); // 第一个参数就是pushState传的第一个对象
+EventUtil.addHandler(window, "popstate", function(event){
+    var state= event.state;
+    if (state) { // 第一个页面加载时state为空
+        processState(state);
+    }
+})
 ```
+* 如果一直用改变hash来增添了多个历史状态, 那个用history.go()/back(), 仅仅会改变hash而不会去重载页面, 原因就是hash的改变不会加载页面

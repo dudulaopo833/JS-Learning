@@ -96,7 +96,7 @@ alert(returnNode === newNode); // true
 > 5. 继承Node类型的属性: element.nodeName, element.nodeType, element.nodeValue, element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, element.childNodes[]  > element.nodeName, element.nodeType, element.nodeValue, element.firstChild, element.lastChild, element.nextSibling, element.previousSibling, element.parentNode, element.ownDocument, element.childNodes[]
 > 6. HTML5扩展的属性: document.readyState(只有loading和complete两个值), document.compatMode(只有CSS1
 Compat和BackCompat两个值)， document.head(<head>), document.charset， document.defaultCharset
-> 7. **专有扩展**: document.documentMode, 要强制以某种模式渲染页面, 可以使用HTTP头部信息X-UA-Copatible来设置, 或者通过等价的<meta>标签来设置
+> 7. **专有扩展**: document.documentMode, 要强制以某种模式渲染页面, 可以使用HTTP头部信息X-UA-Compatible来设置, 或者通过等价的<meta>标签来设置
 ```html
 <meta http-equiv="X-UA-Compatible" content="IE=IEVersion"> <!-- IEVersion有Edge, EmulateIE9, EmulateIE8, EmulateIE7, 9, 8, 7, 5几种类型 -->
 ```

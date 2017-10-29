@@ -1,0 +1,22 @@
+header, footer {
+    height: 100px;
+    background: #ccc;
+}
+
+section {
+    width: 60%;
+    height: 400px;
+    background: #eee;
+    float: left;
+}
+
+sidebar {
+    width: 40%;
+    height: 400px;
+    background: #999;
+    float: left;
+ }
+
+.clear {
+    clear: both;
+}

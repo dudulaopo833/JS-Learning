@@ -33,5 +33,7 @@
 * [DOM Event - Mouse Event - SlidingDoor](https://github.com/dudulaopo833/JS-Projects/tree/master/DOMEvent_MouseEvent_SlidingDoor): js实现移动门的效果
 * [DOM_domReady](https://github.com/dudulaopo833/JS-Projects/tree/master/DOMReady_Simulate): 自己实现了domReady的功能，并且和window.onload 对象，也给了各大前端框架的domReady的实现
 * [DOM Event - Key Event - Lottery](https://github.com/dudulaopo833/JS-Projects/tree/master/DOMEvent_KeyboardEvent_Lottery): 用键盘事件来模拟了一个抽奖程序
+* [hash - Single Page App](): 用html5的hashchange事件来实现单页应用; 改变锚点hash不会触发浏览器的onload事件, 仅仅改变地址栏的hash
+* [history - Single Page App](): 用html5的history增强事件pushState()/replaceState来触发window的popstate事件来实现单页应用; 原因是pushState()/replaceState()方法不会真的向服务器发送请求
 
 

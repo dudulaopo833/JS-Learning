@@ -83,7 +83,7 @@
 > 1. 事件委托可以解决事件处理程序过多的问题, 常用语click, mousedown, mouseup, keydown, keyup, keypress这些事件中
 > 2. 移除事件处理程序可以解决内存中的"空事件处理程序", 常见的是在innerHTML改变前去手动移除事件处理程序, unload事件中移除所有事件处理程序
 
-# 谋逆事件(可用于自动化测试)
+# 模拟事件(可用于自动化测试)
 ------------------------------------------------------------------------
 * DOM中事件模拟： document.createEvent(type-UIEvents/MouseEvents/MutationEvents/HTMLEvents)创建事件对象 -> 初始化创建的事件对象initMouseEvent() -> dispatchEvent()触发事件
 ```js
