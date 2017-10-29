@@ -57,7 +57,7 @@ var text = event.dataTransfer.getData("text");
 * HTML5通过更新history对象为管理历史状态提供了方便, 提供了pushState()和replaceState()方法; 
 * 但是这个两个方法仅仅是改变历史状态栈和浏览器地址栏, 但是它不会真的向服务器发送请求来加载新的页面
 * hash也是仅仅改变浏览器地址栏, 不会触发onload事件; 但是如果用location.search来重新指定地址栏中的search会触发浏览器load事件
-* 这两个事件会触发window的popstate事件, popstate事件的事件对象有一个state属性, 可以获取传的对象
+* 这两个事件会触发statechange事件, 而如果按浏览器的前进后退则触发window的popstate事件, popstate事件的事件对象有一个state属性, 可以获取传的对象
 * pushState()/replaceState()不会设置第三个参数为跨域; 如果跨域会报错, 且触发浏览器刷新
 ```js
 history.pushState({name: "Nicholas"}, "title", "nicholas.html"); // 第一个参数就是pushState传的第一个对象
