@@ -62,7 +62,7 @@
 * 插入节点的触发事件过程: 使用appendChild(), replaceChild(), insertBefore向DOM中插入节点, 触发DOMNodeInserted事件(节点以及插入到新的父节点中); 再触发DOMNodeInsertedIntoDocument事件; 最后触发DOMSubtreeModified事件
 ### 6. HTML5事件
 * 常用： DOMContentLoaded(DOMReady实现策略), readystatechange, hashchange
-* 其他：contextmenu事件(上下文菜单-右击/ctrl+click), beforeunload(卸载前弹框阻止卸载-returnValue为要显示的message), pageshow, pagehide
+* 其他：contextmenu事件(上下文菜单-右击/ctrl+click), beforeunload(卸载前弹框阻止卸载-returnValue为要显示的message), pageshow, pagehide, abort, drag, dragstart, dragend, dragenter, dragover, dragleave/drop, error, message, mousewheel resize, scroll, unload
 ### 7. 设备事件
 * IOS设备: orientationchange(window.orientation)
 * MozOrientation, deviceorientation(可用于重力检测), devicemotion(可用于手机检测运动)

@@ -5,6 +5,7 @@
 * [DOM Object](https://github.com/dudulaopo833/JS-Projects/blob/master/DOM/DOMObject.md ): 记录了DOM各种类型对象的基础知识
 * [DOM Event](https://github.com/dudulaopo833/JS-Projects/blob/master/DOM/DOMEvent/README.md): 说明了两种事件流，说明了 html event, dom0 event, dom2 event 和 IE event; 并且说明了怎么用能力检测来兼容浏览器事件处理
 * [Form 表单](https://github.com/dudulaopo833/JS-Projects/blob/master/DOM/DOM_Form.md): 说明了表单的处理, 文本框的处理, 选择框的处理
+*[HTML5脚本](): 说明了跨文档消息传递, 原生拖放, 媒体元素, 历史状态管理
 
 # Summary
 ### Related vedio: http://www.imooc.com/video/9491  
