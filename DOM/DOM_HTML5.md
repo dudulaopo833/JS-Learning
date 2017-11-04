@@ -54,11 +54,14 @@ var text = event.dataTransfer.getData("text");
 # 历史状态管理
 ----------------------------------------------------------
 * 使用hashchange事件可以知道URL参数发生了什么变化
+> 1. hash也是仅仅改变浏览器地址栏, 不会触发onload事件; 但是如果用location.search来重新指定地址栏中的search会触发浏览器load事件
+> 2. 如果一直用改变hash来增添了多个历史状态, 那个用history.go()/back(), 仅仅会改变hash而不会去重载页面, 原因就是hash的改变不会加载页面, 因为**发送给服务器的url根本就不包含hash部分**
+
 * HTML5通过更新history对象为管理历史状态提供了方便, 提供了pushState()和replaceState()方法; 
-* 但是这个两个方法仅仅是改变历史状态栈和浏览器地址栏, 但是它不会真的向服务器发送请求来加载新的页面
-* hash也是仅仅改变浏览器地址栏, 不会触发onload事件; 但是如果用location.search来重新指定地址栏中的search会触发浏览器load事件
-* 这两个事件会触发statechange事件, 而如果按浏览器的前进后退则触发window的popstate事件, popstate事件的事件对象有一个state属性, 可以获取传的对象; 也可以直接history.state取得历史栈中的当前state对象
-* pushState()/replaceState()不能设置第三个参数为跨域; 如果跨域会报错(Uncaught DOMException: Failed to execute 'pushState' on 'History'); 所以必须同源
+> 1. 但是这个两个方法仅仅是改变历史状态栈和浏览器地址栏, 但是它不会真的向服务器发送请求来加载新的页面
+> 2. 这两个事件会触发statechange事件, 
+> 3. 而如果按浏览器的前进后退则触发window的popstate事件, popstate事件的事件对象有一个state属性, 可以获取传的对象; 也可以直接history.state取得历史栈中的当前state对象
+> 4. pushState()/replaceState()不能设置第三个参数为跨域; 如果跨域会报错(Uncaught DOMException: Failed to execute 'pushState' on 'History'); 所以必须同源
 ```js
 history.pushState({name: "Nicholas"}, "title", "nicholas.html"); // 第一个参数就是pushState传的第一个对象
 EventUtil.addHandler(window, "popstate", function(event){
@@ -68,45 +71,3 @@ EventUtil.addHandler(window, "popstate", function(event){
     }
 })
 ```
-* 如果一直用改变hash来增添了多个历史状态, 那个用history.go()/back(), 仅仅会改变hash而不会去重载页面, 原因就是hash的改变不会加载页面, 因为**发送给服务器的url根本就不包含hash部分**
-```js
-Google还规定，如果你希望Ajax生成的内容被浏览引擎读取，那么URL中可以使用"#!"，Google会自动将其后面的内容转成查询字符串_escaped_fragment_的值。
-比如，Google发现新版twitter的URL如下：
-　　http://twitter.com/#!/username
-就会自动抓取另一个URL：
-　　http://twitter.com/?_escaped_fragment_=/username
-```
-
-### 路由
-* 路由就是url和处理函数的映射
-* route就是一条路由, 而router就是一个机制去管理多个route; 就是接受到一个url, 去路由映射表里找处理函数
-* 服务端路由: router在匹配route过程, 除了url, 还有请求的方法post/get来匹配的
-> 1. 静态资源服务器, url的映射函数就是文件读取操作
-> 2. 动态资源服务器, url的映射函数就是数据库读取操作
-* 客户端路由: 路由的映射函数都是处理一些DOM的显示和隐藏操作, 当访问不同url时, 会显示不同的组件
-> 1. 基于hash来实现: 发送给服务器的请求url不会包含hash的, [例子参考这里](https://github.com/dudulaopo833/JS-Projects/tree/master/Route_Hash)
-> 2. 基于history API来实现: 只改变url, 并不会真的请求, [例子参考这里]()
-* 客户端路由的两种方式的比较
-> 1. hash路由兼容性更好, history API路由更加直观和正式
-> 2. hash路由不需要改动服务器, history API路由需要改动服务器
-```js
-// 假设服务器有两个文件 index.html 和 script.js; 并且index.html 引用了script.js
-
-// 基于hash的路由有
-http://exmaple.com/
-http://example.com/#/foobar
-// 基于history API的路由有
-http://exmaple.com/
-http://example.com/foobar
-
-// Step 1: 直接访问http://example.com/ 两种路由行为一致, 返回了index.html
-// Step 2： 从 http://example.com/ 跳到 http://example.com/#/foobar 或者 http://example.com/foobar; 因为已经加载了script.js, 所以都能正确处理路由
-
-// 差异: 直接访问 http://example.com/#/foobar 因为hash不会发送给服务器, 所以实际请求 http://example.com, 所以可以正确处理
-
-// 差异： 直接访问 http://example.com/foobar 就真的实际请求这个路径 , 但是服务器其实没有这个路径的, 会返回404错误
-
-// 差异的解决方法: 改造服务端, 使得接受到 http://example.com/foobar 能请求到index.html
-```
-* 动态路由: restful API中经常有 “/urser/:id" 这种动态路由
-* 严格路由: /foobar(类比一个文件) 和 /foobar/(类比一个目录) 是不一样的, 需要看服务器怎么处理

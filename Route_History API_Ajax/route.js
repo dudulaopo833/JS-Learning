@@ -9,7 +9,6 @@
 (function(){
     var Router = function(){
         this.routes = {}; // 用来保存路由信息
-        this.currentHash = '';// 用来获取当前url中的hash
     };
     Router.prototype.addRoute = function(hashKey, callback){
         this.routes[hashKey] = callback || function(){}; // 保存路由和回调函数
