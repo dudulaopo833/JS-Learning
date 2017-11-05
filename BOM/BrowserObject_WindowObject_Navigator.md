@@ -63,7 +63,7 @@ function hasFlashPlugin(){
 > 1. Trident : IE
 > 2. Gecko: Firefox, Netscape
 > 3. WebKit: Safari, Chrome, IOS Mobile, Android Mobile
-> 4. KTML: Konqueror(Linux platform)
+> 4. KHTML: Konqueror(Linux platform)
 > 5. Presto: Opera
 
 * 检测用户代理, 检测呈现引擎和最低版本就可以了; 顺序是按照伪装程度从高到低; 先检测Opera, 再来是WebKit, 第三是KHTML, 第四是Gecko, 最后是IE
