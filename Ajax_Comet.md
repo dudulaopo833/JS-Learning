@@ -8,7 +8,8 @@
 * Ajax通信与数据格式无关, 所以XHR可以获取XML数据和其他数据, 比如JSON数据
 * 同源策略是XHR的一个主要约束, 它为通信设置了"相同域, 相同端口, 相同协议"的限制
 
-## XMLHttpRequest对象
+# 1. XMLHttpRequest对象
+-------------------------------------------
 * new创建这个对象, var xhr = new XMLHttpRequest();
 * open()创建连接, xhr.open(method, relative url, true); method有GET和POST; url最好用相对url和跨源资源共享CORS区分开来; true是异步发送, false是同步发送
 * setRequestHeader()设置自定义头部信息
@@ -85,7 +86,8 @@ var form = document.getElementById("user-form");
 xhr.send(serialize(form));
 ```
 
-## XMLHttpRequest 2
+# 2. XMLHttpRequest 2
+-------------------------------------------
 ### FormData类型
 * FormData为序列化表单以及创建与表单格式相同的数据(用于通过XHR传输)提供了便利, 可以直接添加一些名-值对
 ```js
@@ -143,8 +145,7 @@ xhr.open("GET", "example.txt", true);
 xhr.send(null);
 ```
 
-
-
-
-# Comet
+# 3. 跨源资源共享
 -------------------------------------------
+
+# 4. 其他跨域技术
